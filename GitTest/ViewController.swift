@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var timer: Timer!
+    var loadTimer: Timer!
+    var disappearTimer: Timer!
     
     var prog: Float = 0.0 {
         didSet {
@@ -29,9 +31,11 @@ class ViewController: UIViewController {
 
     @IBAction func buttonPressed(_ sender: Any) {
         
+        loadTimer?.invalidate()
         prog = 0.0
+        activityIndicator.isHidden = false
         
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(incrementProgress), userInfo: nil, repeats: true)
+        loadTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(incrementProgress), userInfo: nil, repeats: true)
         
     }
     
@@ -40,9 +44,22 @@ class ViewController: UIViewController {
         prog += 0.1
         
         if prog >= 1.0 {
-            timer.invalidate()
+            loadTimer.invalidate()
+            disappearTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(hideLoading), userInfo: nil, repeats: false)
         }
         
+    }
+    
+    func hideLoading() {
+        
+        UIView.animate(withDuration: 0.2, animations: { [unowned self] in
+                self.progressBar.alpha = CGFloat(0.0)
+            }, completion: { [unowned self] _ in
+                self.progressBar.progress = 0.0
+                self.prog = 0.0
+                self.progressBar.alpha = CGFloat(1.0)
+                self.activityIndicator.isHidden = true
+            })
     }
 
 }

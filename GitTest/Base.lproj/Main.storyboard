@@ -32,18 +32,24 @@
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yLr-bz-EdU"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kXf-lA-IBk">
+                                <rect key="frame" x="178" y="90" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2Xj-Zr-yII" firstAttribute="centerX" secondItem="w7P-6C-Oei" secondAttribute="centerX" id="Kwa-Q8-kHO"/>
-                            <constraint firstItem="2Xj-Zr-yII" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aGH-An-rHK"/>
-                            <constraint firstItem="w7P-6C-Oei" firstAttribute="top" secondItem="2Xj-Zr-yII" secondAttribute="bottom" constant="63" id="btr-jc-jQA"/>
-                            <constraint firstItem="2Xj-Zr-yII" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="g4C-fh-Fwo"/>
-                            <constraint firstAttribute="trailing" secondItem="2Xj-Zr-yII" secondAttribute="trailing" id="ors-y1-PWG"/>
+                            <constraint firstItem="2Xj-Zr-yII" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LPb-rY-RnF"/>
+                            <constraint firstItem="2Xj-Zr-yII" firstAttribute="centerX" secondItem="w7P-6C-Oei" secondAttribute="centerX" id="NJN-13-6ku"/>
+                            <constraint firstItem="2Xj-Zr-yII" firstAttribute="centerX" secondItem="kXf-lA-IBk" secondAttribute="centerX" id="btC-sB-alG"/>
+                            <constraint firstAttribute="trailing" secondItem="2Xj-Zr-yII" secondAttribute="trailing" id="ncN-vJ-vzk"/>
+                            <constraint firstItem="w7P-6C-Oei" firstAttribute="top" secondItem="kXf-lA-IBk" secondAttribute="bottom" constant="19" id="tQq-iH-hAc"/>
+                            <constraint firstItem="kXf-lA-IBk" firstAttribute="top" secondItem="2Xj-Zr-yII" secondAttribute="bottom" constant="24" id="teq-OH-0LK"/>
+                            <constraint firstItem="2Xj-Zr-yII" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tkh-LQ-k4M"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9Lc-ah-wd3"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="kXf-lA-IBk" id="4sS-du-Qmd"/>
                         <outlet property="progressBar" destination="2Xj-Zr-yII" id="Iya-xS-Ul0"/>
                     </connections>
                 </viewController>
